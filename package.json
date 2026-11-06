@@ -1,0 +1,19 @@
+{
+  "name": "loki_claude",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Microsoft Loki plugin for Claude Code",
+  "license": "MIT",
+  "type": "module",
+  "os": ["win32"],
+  "engines": { "node": ">=22.0.0" },
+  "repository": { "type": "git", "url": "https://github.com/idyllic84/loki_claude.git" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@azure/msal-node": "7.1.0",
+    "@azure/msal-node-extensions": "5.5.2",
+    "@modelcontextprotocol/sdk": "1.32.2"
+  }
+}

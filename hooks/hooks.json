@@ -1,0 +1,4 @@
+{
+  "description": "Loki commands, per-session conversation id and live model refresh",
+  "modules": ["./register.js"]
+}

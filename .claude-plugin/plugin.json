@@ -1,0 +1,11 @@
+{
+  "name": "loki",
+  "displayName": "Loki",
+  "version": "1.0.0",
+  "description": "Use Microsoft Loki (Claude models, Microsoft Entra SSO) as Claude Code's model provider, with Loki WebGrounding web search",
+  "author": { "name": "idyllic84" },
+  "homepage": "https://github.com/idyllic84/loki_claude",
+  "repository": "https://github.com/idyllic84/loki_claude",
+  "license": "MIT",
+  "keywords": ["loki", "microsoft", "entra", "gateway", "web-search"]
+}

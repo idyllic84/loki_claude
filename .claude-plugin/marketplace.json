@@ -1,0 +1,12 @@
+{
+  "name": "loki",
+  "description": "Loki plugin for Claude Code",
+  "owner": { "name": "idyllic84" },
+  "plugins": [
+    {
+      "name": "loki",
+      "source": "./",
+      "description": "Use Microsoft Loki (Claude models, Microsoft Entra SSO) as Claude Code's model provider, with Loki WebGrounding web search"
+    }
+  ]
+}

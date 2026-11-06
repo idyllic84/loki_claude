@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "loki-web": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/src/web-mcp-server.mjs"]
+    }
+  }
+}
