@@ -117,7 +117,7 @@ claude plugin update loki@loki
 ## 隐私与卸载
 
 - 登录状态与令牌缓存保存在 `~/.claude/loki-state/config.json`，请勿公开或提交该文件。
-- 插件会在 `~/.claude/settings.json` 中写入 Loki 所需的 `apiKeyHelper`、`env.ANTHROPIC_BASE_URL`、`env.ANTHROPIC_CUSTOM_HEADERS`、`modelOverrides` 和 `modelPicker`，不写入令牌；执行 `/loki-logout` 会恢复为登录前的设置。
+- 插件会在 `~/.claude/settings.json` 中写入 Loki 所需的 `apiKeyHelper`、`env.ANTHROPIC_BASE_URL`、`env.ANTHROPIC_CUSTOM_HEADERS`、`modelOverrides` 和 `modelPicker`，并关闭 Loki 不支持的 `/advisor` 及安全拦截后自动换模型功能；不写入令牌。执行 `/loki-logout` 会恢复为登录前的设置。
 - 不要在提示词、搜索词或网页 URL 中发送未获授权的数据；不要将 `/loki-endpoint` 指向不可信的地址。
 
 卸载：

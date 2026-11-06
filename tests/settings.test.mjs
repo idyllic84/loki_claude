@@ -57,6 +57,8 @@ test("applying Loki settings sets the gateway, sets aside bypassing credentials 
 	assert.equal(first.settings.apiKeyHelper, config.helperCommand);
 	assert.equal(first.settings.env.ANTHROPIC_BASE_URL, PROD_UPSTREAM);
 	assert.match(first.settings.env.ANTHROPIC_CUSTOM_HEADERS, /^X-ClientType: Copilot\n.*\nX-ConversationId: 0{8}-/s);
+	assert.equal(first.settings.env.CLAUDE_CODE_DISABLE_ADVISOR_TOOL, "1", "Loki rejects the advisor tool beta");
+	assert.equal(first.settings.env.CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK, "1", "Loki rejects the fallback-credit beta");
 	assert.equal(first.settings.env.ANTHROPIC_AUTH_TOKEN, undefined);
 	assert.equal(first.settings.env.ANTHROPIC_MODEL, undefined, "a model Loki does not serve would fail every request");
 	assert.equal(first.settings.model, "opus[1m]", "aliases resolve through modelOverrides");

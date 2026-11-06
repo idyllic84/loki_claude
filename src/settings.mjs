@@ -11,7 +11,7 @@ import { dirname, join } from "node:path";
 import { getClaudeDir } from "./config.mjs";
 
 /** Keys the plugin owns. `env.*` entries refer to keys inside the `env` object. */
-const OWNED = ["apiKeyHelper", "modelOverrides", "modelPicker", "env.ANTHROPIC_BASE_URL", "env.ANTHROPIC_CUSTOM_HEADERS"];
+const OWNED = ["apiKeyHelper", "modelOverrides", "modelPicker", "env.ANTHROPIC_BASE_URL", "env.ANTHROPIC_CUSTOM_HEADERS", "env.CLAUDE_CODE_DISABLE_ADVISOR_TOOL", "env.CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK"];
 /** Credentials that take precedence over `apiKeyHelper`; removed while Loki is active. */
 const CONFLICTING = ["env.ANTHROPIC_AUTH_TOKEN", "env.ANTHROPIC_API_KEY"];
 /** Model selections that may name a model Loki does not serve. */
@@ -104,6 +104,10 @@ export function applyLokiSettings(current, { endpoint, helperCommand, headers, m
 	setKey(settings, "apiKeyHelper", helperCommand);
 	setKey(settings, "env.ANTHROPIC_BASE_URL", endpoint);
 	setKey(settings, "env.ANTHROPIC_CUSTOM_HEADERS", headers);
+	// Loki rejects the advisor-tool and fallback-credit betas without naming them,
+	// so Claude Code cannot retry around them: turn both features off.
+	setKey(settings, "env.CLAUDE_CODE_DISABLE_ADVISOR_TOOL", "1");
+	setKey(settings, "env.CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK", "1");
 
 	if (modelSettings) {
 		// Keep the user's own overrides for models Loki does not serve.
